@@ -222,6 +222,16 @@ class AgentTests(unittest.TestCase):
         self.assertIn("T01", events[-1]["answer"])
         self.assertNotIn("Recursion limit", events[-1]["answer"])
 
+    def test_budget_summary_still_streams_answer_chunks(self):
+        with patch("app.agent.MAX_TOOL_ROUNDS", 1):
+            events = list(stream_agent(TrialCatalog(DATA_DIR), "Find wheat trials", model=StreamingScriptedModel()))
+        self.assertEqual(events[-1]["status"], "completed")
+        self.assertEqual(events[-1]["tools_used"], 1)
+        self.assertEqual(
+            [event["text"] for event in events if event["type"] == "answer_token"],
+            ["T01 ", "shows ", "a 5% yield difference."],
+        )
+
 
 class GeneratedDataTests(unittest.TestCase):
     def test_generated_files_load_through_catalog_api_and_agent(self):

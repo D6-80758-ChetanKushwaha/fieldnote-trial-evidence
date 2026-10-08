@@ -209,6 +209,8 @@ def stream_agent(catalog: TrialCatalog, question: str, model: Any | None = None)
                     content=EVIDENCE_LIMIT_ANSWER,
                     response_metadata={"evidence_limit_incomplete": True},
                 )]}
+            if isinstance(response, AIMessage) and not response.tool_calls:
+                return {"messages": [response]}
             return {"messages": [AIMessage(content=content)]}
 
         workflow = StateGraph(MessagesState)
