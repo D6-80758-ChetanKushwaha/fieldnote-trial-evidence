@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -20,6 +21,18 @@ DEFAULT_DATA_DIR = ROOT / "demo-data" if (ROOT / "demo-data").is_dir() else ROOT
 DATA_DIR = Path(os.getenv("TRIAL_DATA_DIR", str(DEFAULT_DATA_DIR))).resolve()
 catalog = TrialCatalog(DATA_DIR)
 app = FastAPI(title="Agricultural Trial Evidence", version="1.0.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        origin.strip().rstrip("/")
+        for origin in os.getenv(
+            "CORS_ORIGINS", "https://d6-80758-chetankushwaha.github.io"
+        ).split(",")
+        if origin.strip()
+    ],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Accept"],
+)
 app.mount("/static", StaticFiles(directory=ROOT / "app" / "static"), name="static")
 
 

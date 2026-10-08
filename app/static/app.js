@@ -1,4 +1,6 @@
 const $ = (id) => document.getElementById(id);
+const API_BASE = (window.FIELDNOTE_API_BASE || '').replace(/\/$/, '');
+const apiUrl = (path) => `${API_BASE}${path}`;
 const selected = new Set();
 let allTrials = [];
 let visibleTrials = [];
@@ -14,7 +16,7 @@ function element(tag, className, text) {
 }
 
 async function json(url, options) {
-  const response = await fetch(url, options);
+  const response = await fetch(apiUrl(url), options);
   const body = await response.json();
   if (!response.ok) throw new Error(body.detail || `Request failed (${response.status})`);
   return body;
@@ -102,7 +104,7 @@ async function loadTrials() {
 function sourceCard(observation) {
   const card = element('div', 'source-card');
   const link = element('a', '', `${observation.source} ↗`);
-  link.href = `/api/sources/${encodeURIComponent(observation.source)}`;
+  link.href = apiUrl(`/api/sources/${encodeURIComponent(observation.source)}`);
   link.target = '_blank'; link.rel = 'noopener noreferrer';
   card.append(link, element('div','trial-meta', observation.location));
   card.append(element('div','source-yields',`Treated ${yieldText(observation.treated_yield_t_ha)} · Control ${yieldText(observation.control_yield_t_ha)}`));
@@ -194,7 +196,7 @@ function renderAnswer(text) {
 }
 
 async function readAgentStream(question, onEvent) {
-  const response = await fetch('/api/agent/stream', {
+  const response = await fetch(apiUrl('/api/agent/stream'), {
     method:'POST', headers:{'Content-Type':'application/json','Accept':'text/event-stream'},
     body:JSON.stringify({question})
   });
@@ -226,7 +228,7 @@ function showAnswerSources(sources) {
   $('answerSources').append(element('strong','','Original sources'));
   for (const source of sources) {
     const link=element('a','',`${source} ↗`);
-    link.href=`/api/sources/${encodeURIComponent(source)}`;
+    link.href=apiUrl(`/api/sources/${encodeURIComponent(source)}`);
     link.target='_blank'; link.rel='noopener noreferrer';
     $('answerSources').append(link);
   }

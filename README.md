@@ -38,6 +38,21 @@ The generated files are in `demo-data/`. Its `manifest.json` lists the intention
 
 Run checks with `uv run python -m unittest discover -s tests -v`.
 
+## Live deployment
+
+`render.yaml` defines a free Render Python web service. It installs the pinned
+`requirements.txt`, serves `app.main:app`, and checks `/api/health`. Set
+`GOOGLE_API_KEY` as a secret environment variable in Render. The key must not
+be placed in GitHub Pages files. `CORS_ORIGINS` permits the portfolio site to
+call the API; set it to the exact frontend origin for another domain.
+
+The static frontend can be copied to a GitHub Pages subdirectory. Load a small
+configuration script before `app.js` that sets
+`window.FIELDNOTE_API_BASE = "https://your-service.onrender.com"`.
+Without this value, the frontend uses its own origin for local development.
+Render's free service may take about a minute to wake after inactivity, so the
+first catalog request can be slower than subsequent requests.
+
 ## Business understanding
 
 Agronomists need to find earlier trials before planning new work, and commercial teams need to evaluate product claims against source-backed evidence. The app provides normalized search, side-by-side comparison, source inspection, and an agent that investigates a question through catalog tools.

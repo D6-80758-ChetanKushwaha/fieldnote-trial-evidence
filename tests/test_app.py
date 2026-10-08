@@ -57,6 +57,17 @@ class ApiTests(unittest.TestCase):
     def setUpClass(cls):
         cls.client = TestClient(app)
 
+    def test_portfolio_origin_can_call_and_stream_api(self):
+        origin = "https://d6-80758-chetankushwaha.github.io"
+        response = self.client.options(
+            "/api/agent/stream",
+            headers={"Origin": origin, "Access-Control-Request-Method": "POST",
+                     "Access-Control-Request-Headers": "content-type"},
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers["access-control-allow-origin"], origin)
+        self.assertIn("POST", response.headers["access-control-allow-methods"])
+
     def test_search_compare_and_sources(self):
         with patch("app.main.catalog", TrialCatalog(DATA_DIR)):
             response = self.client.get("/api/trials", params={"crop": "Wheat", "trial_type": "Scientific", "year_from": 2021, "year_to": 2025})
