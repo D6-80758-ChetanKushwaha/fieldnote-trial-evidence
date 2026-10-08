@@ -1,0 +1,8 @@
+Trial T22 synthetic field report
+Trial details
+Crop: Potato. Product: Root Boost. Country: France. Year: 2024.
+Trial type: Scientific.
+Results
+Treated yield: 42.62 t/ha. Control yield: 42.83 t/ha.
+Notes
+This synthetic report intentionally disagrees with the spreadsheet treated yield. The discrepancy is unresolved. All values are fictional. Replication and statistical significance are not documented.

@@ -1,0 +1,25 @@
+Trial reference,Crop name,Product name,Country code,Season year,Trial category,Treated yield kg per ha,Untreated yield kg per ha
+T08,potato,ROOT BOOST,DE,2019,scientific,41960,41960
+T10,potato,Root Boost,FR,2021,scientific,42390,43700
+T12,potato,ROOT BOOST,ES,2023,demonstration,50440,45440
+T14,potato,Root Boost,DE,2025,scientific,38740,35870
+T16,potato,ROOT BOOST,FR,2018,scientific,39490,37610
+T18,potato,Root Boost,ES,2020,demonstration,40140,39350
+T20,potato,ROOT BOOST,DE,2022,scientific,40680,41090
+T22,potato,Root Boost,FR,2024,scientific,41120,42830
+T24,potato,ROOT BOOST,ES,2026,demonstration,49030,44570
+T26,potato,Root Boost,DE,2019,scientific,37450,35000
+T28,potato,ROOT BOOST,FR,2021,scientific,38210,36740
+T30,potato,Root Boost,ES,2023,demonstration,38860,38480
+T32,potato,ROOT BOOST,DE,2025,scientific,39420,40220
+T34,potato,Root Boost,FR,2018,scientific,39860,41960
+T36,potato,ROOT BOOST,ES,2020,demonstration,47630,43700
+T38,potato,Root Boost,DE,2022,scientific,48170,45440
+T40,potato,ROOT BOOST,FR,2024,scientific,36950,35870
+T42,potato,Root Boost,ES,2026,demonstration,37610,37610
+T44,potato,ROOT BOOST,DE,2019,scientific,38170,39350
+T46,potato,Root Boost,FR,2021,scientific,45610,41090
+T48,potato,ROOT BOOST,ES,2023,demonstration,46260,42830
+T50,potato,Root Boost,DE,2025,scientific,46800,44570
+T52,potato,ROOT BOOST,FR,2018,scientific,35700,35000
+T54,potato,Root Boost,ES,2020,demonstration,36370,36740

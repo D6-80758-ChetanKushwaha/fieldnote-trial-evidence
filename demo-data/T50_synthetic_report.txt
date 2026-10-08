@@ -1,0 +1,8 @@
+Trial T50 synthetic field report
+Trial details
+Crop: Potato. Product: Root Boost. Country: Germany. Year: 2025.
+Trial type: Scientific.
+Results
+Treated yield: 46.80 t/ha. Control yield: 44.57 t/ha.
+Notes
+This synthetic report repeats the spreadsheet result in t/ha. All values are fictional. Replication and statistical significance are not documented.

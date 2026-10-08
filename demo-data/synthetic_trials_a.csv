@@ -1,0 +1,25 @@
+trial_id,crop,product,country,year,trial_type,treatment_yield,control_yield,yield_unit
+T07,Wheat,Harvest Plus,France,2018,Scientific,8.44,7.67,t/ha
+T09,Wheat,Harvest Plus,ES,2020,Demonstration,8660,8090,kg/ha
+T11,Wheat,Harvest Plus,Germany,2022,Scientific,6.45,6.20,t/ha
+T13,Wheat,Harvest Plus,France,2024,Scientific,6690,,kg/ha
+T15,wheat,HarvestPlus,ES,2026,Demonstration,6.90,7.04,t/ha
+T17,Wheat,Harvest Plus,Germany,2019,Scientific,7090,7460,kg/ha
+T19,Wheat,Harvest Plus,France,2021,Scientific,8.59,7.88,t/ha
+T21,Wheat,Harvest Plus,ES,2023,Demonstration,8800,8300,kg/ha
+T23,Wheat,Harvest Plus,Germany,2025,Scientific,6.60,6.41,t/ha
+T25,wheat,HarvestPlus,France,2018,Scientific,6830,6830,kg/ha
+T27,Wheat,Harvest Plus,ES,2020,Demonstration,7.03,7.25,t/ha
+T29,Wheat,Harvest Plus,Germany,2022,Scientific,8510,,kg/ha
+T31,Wheat,Harvest Plus,France,2024,Scientific,8.74,8.09,t/ha
+T33,Wheat,Harvest Plus,ES,2026,Demonstration,6510,6200,kg/ha
+T35,wheat,HarvestPlus,Germany,2019,Scientific,6.75,6.62,t/ha
+T37,Wheat,Harvest Plus,France,2021,Scientific,6970,7040,kg/ha
+T39,Wheat,Harvest Plus,ES,2023,Demonstration,7.16,7.46,t/ha
+T41,Wheat,Harvest Plus,Germany,2025,Scientific,8670,7880,kg/ha
+T43,Wheat,Harvest Plus,France,2018,Scientific,8.88,8.30,t/ha
+T45,wheat,HarvestPlus,ES,2020,Demonstration,6670,6410,kg/ha
+T47,Wheat,Harvest Plus,Germany,2022,Scientific,6.90,,t/ha
+T49,Wheat,Harvest Plus,France,2024,Scientific,7100,7250,kg/ha
+T51,Wheat,Harvest Plus,ES,2026,Demonstration,7.29,7.67,t/ha
+T53,Wheat,Harvest Plus,Germany,2019,Scientific,8820,8090,kg/ha

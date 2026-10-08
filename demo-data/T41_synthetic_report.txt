@@ -1,0 +1,8 @@
+Trial T41 synthetic field report
+Trial details
+Crop: Wheat. Product: Harvest Plus. Country: Germany. Year: 2025.
+Trial type: Scientific.
+Results
+Treated yield: 7.67 t/ha. Control yield: 7.88 t/ha.
+Notes
+This synthetic report intentionally disagrees with the spreadsheet treated yield. The discrepancy is unresolved. All values are fictional. Replication and statistical significance are not documented.

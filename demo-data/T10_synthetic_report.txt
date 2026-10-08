@@ -1,0 +1,8 @@
+Trial T10 synthetic field report
+Trial details
+Crop: Potato. Product: Root Boost. Country: France. Year: 2021.
+Trial type: Scientific.
+Results
+Treated yield: 42.39 t/ha. Control yield: 43.70 t/ha.
+Notes
+This synthetic report repeats the spreadsheet result in t/ha. All values are fictional. Replication and statistical significance are not documented.

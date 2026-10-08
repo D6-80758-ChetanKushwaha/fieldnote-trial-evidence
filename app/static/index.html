@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldnote | Trial evidence</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✳</span><span>Fieldnote</span><span class="brand-divider"></span><span class="brand-sub">Trial evidence</span></div>
+      <div class="top-meta"><span class="live-dot"></span><span id="catalogCount">Loading catalog…</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div><div class="eyebrow">AGRICULTURAL INTELLIGENCE / FICTIONAL DEMO DATA</div><h1>Find the evidence<br><em>behind the field.</em></h1><p>Explore fictional trial results, compare outcomes, and trace every number back to its source.</p></div>
+        <div class="hero-stats"><div><strong id="statTrials">—</strong><span>TRIALS</span></div><div><strong id="statSources">—</strong><span>SOURCE RECORDS</span></div><div><strong id="statFlags">—</strong><span>NEED REVIEW</span></div></div>
+      </section>
+
+      <div class="workbench">
+        <section class="explorer panel">
+          <div class="section-head"><div><span class="section-kicker">01 / EXPLORE</span><h2>Trial catalog</h2></div><button id="resetFilters" class="text-button">Clear filters ↗</button></div>
+          <form id="filterForm" class="filters">
+            <label>Trial ID<input id="trialId" type="search" placeholder="e.g. T22"></label>
+            <label>Crop<select id="crop"><option value="">All crops</option></select></label>
+            <label>Product<select id="product"><option value="">All products</option></select></label>
+            <label>Country<select id="country"><option value="">All countries</option></select></label>
+            <label>Trial type<select id="trialType"><option value="">All types</option></select></label>
+            <label>From year<input id="yearFrom" type="number" min="1900" max="2200" placeholder="Any"></label>
+            <label>To year<input id="yearTo" type="number" min="1900" max="2200" placeholder="Any"></label>
+          </form>
+          <div class="result-bar"><div><strong id="resultCount">—</strong> <span>matching trials</span></div><button id="compareButton" class="primary-button" disabled>Compare selected <span id="selectedCount">(0)</span> →</button></div>
+          <div id="trialList" class="trial-list" aria-live="polite"></div>
+          <div id="pagination" class="pagination hidden"><button id="previousPage" class="text-button" type="button">← Previous</button><span id="pageInfo"></span><button id="nextPage" class="text-button" type="button">Next →</button></div>
+        </section>
+
+        <aside class="assistant-panel panel">
+          <div class="assistant-intro"><div class="assistant-icon">✦</div><span class="section-kicker">02 / ASK THE EVIDENCE</span><h2>Research assistant</h2><p>Ask a question. The agent searches trials, inspects records, and reads sources before answering.</p></div>
+          <div id="agentStatus" class="agent-status">Checking model configuration…</div>
+          <div class="suggestions"><span>TRY A QUESTION</span><button type="button" class="prompt-chip">Compare Harvest Plus wheat results in France and Germany</button><button type="button" class="prompt-chip">What evidence supports Root Boost improving potato yields?</button><button type="button" class="prompt-chip">Is there evidence for Harvest Plus improving rice yields?</button></div>
+          <form id="questionForm" class="question-form"><label for="question">Your question</label><textarea id="question" rows="4" placeholder="What would you like to know about these trials?"></textarea><button type="submit" id="askButton" class="dark-button">Ask the agent <span>↗</span></button></form>
+        </aside>
+      </div>
+
+      <section id="answerPanel" class="answer-panel panel hidden" aria-live="polite">
+        <div class="answer-header"><div><span class="section-kicker">03 / EVIDENCE ANSWER</span><h2>Research findings</h2></div><strong id="runStatus"></strong></div>
+        <div id="agentLoading" class="agent-loading hidden" role="status"><span class="loading-spinner"></span><span id="progressText">Finding the best starting point…</span></div>
+        <div class="answer-grid">
+          <div class="answer-content"><div id="answerText" class="answer-body"></div><div id="answerSources" class="answer-sources"></div></div>
+          <aside id="activityPanel" class="activity-panel"><div class="activity-heading"><span>AGENT DECISIONS & TOOLS</span><strong id="toolCount">0 results</strong></div><p>Newest activity appears first. Open a step for its full result.</p><div id="activityList"></div></aside>
+        </div>
+      </section>
+      <section id="detailPanel" class="detail-panel panel hidden" aria-live="polite"></section>
+      <section id="comparePanel" class="compare-panel panel hidden" aria-live="polite"></section>
+    </main>
+    <footer><span>FIELDNOTE / AGRICULTURAL TRIAL EVIDENCE</span><span>Original sources remain available for every record.</span></footer>
+  </div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

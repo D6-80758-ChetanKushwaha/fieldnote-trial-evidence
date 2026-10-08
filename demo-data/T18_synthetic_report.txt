@@ -1,0 +1,8 @@
+Trial T18 synthetic field report
+Trial details
+Crop: Potato. Product: Root Boost. Country: Spain. Year: 2020.
+Trial type: Demonstration.
+Results
+Treated yield: 40.14 t/ha. Control yield: 39.35 t/ha.
+Notes
+This synthetic report repeats the spreadsheet result in t/ha. All values are fictional. Replication and statistical significance are not documented.
