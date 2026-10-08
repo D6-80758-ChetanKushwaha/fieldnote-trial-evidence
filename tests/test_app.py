@@ -148,6 +148,29 @@ class StreamingScriptedModel(BaseChatModel):
                 yield ChatGenerationChunk(message=AIMessageChunk(content=token))
 
 
+class RepeatingSearchModel:
+    """Keep requesting tools until the graph's evidence budget forces a summary."""
+
+    def __init__(self):
+        self.calls = 0
+
+    def bind_tools(self, tools):
+        parent = self
+
+        class ToolBinding:
+            def invoke(self, messages):
+                parent.calls += 1
+                return AIMessage(content="", tool_calls=[{
+                    "name": "search_trials", "args": {"trial_id": "T01"},
+                    "id": f"repeat-{parent.calls}",
+                }])
+
+        return ToolBinding()
+
+    def invoke(self, messages):
+        return AIMessage(content="T01 has a descriptive yield difference in this fictional catalog.")
+
+
 class AgentTests(unittest.TestCase):
     def test_missing_replication_is_not_misreported(self):
         self.assertEqual(_answer_text("an unreplicated demonstration trial"),
@@ -188,6 +211,16 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(tokens, ["T01 ", "shows ", "a 5% yield difference."])
         self.assertLess(next(i for i, event in enumerate(events) if event["type"] == "answer_token"),
                         len(events) - 1)
+
+    def test_repeated_tool_requests_finish_at_evidence_budget(self):
+        model = RepeatingSearchModel()
+        with patch("app.agent.MAX_TOOL_ROUNDS", 3):
+            events = list(stream_agent(TrialCatalog(DATA_DIR), "What happened in T01?", model=model))
+        self.assertEqual(model.calls, 3)
+        self.assertEqual(events[-1]["status"], "completed")
+        self.assertEqual(events[-1]["tools_used"], 3)
+        self.assertIn("T01", events[-1]["answer"])
+        self.assertNotIn("Recursion limit", events[-1]["answer"])
 
 
 class GeneratedDataTests(unittest.TestCase):
